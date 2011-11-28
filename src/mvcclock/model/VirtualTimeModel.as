@@ -1,12 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-//Code stub generated with:
-//                                Crocus Modeller
-//                      Robust UML editor for AS3 & Flex devs.
-//                             http://CrocusModeller.com
-//
-////////////////////////////////////////////////////////////////////////////////
-
-
 package mvcclock.model {
 	import flash.events.EventDispatcher;
 	
@@ -15,21 +6,28 @@ package mvcclock.model {
 	import mvcclock.model.base.TimeModel;
 
 	/**
-	 * DayTimeModel
+	 * DayTimeModel, holds the current virtual time
 	 *
-	 * @author YourName
+	 * @author @camillereynders
 	 */
-	public class DayTimeModel extends EventDispatcher implements TimeModel, Time {
+	
+	[Event(name="mvcclock.restricted.model.events::TimeModelUpdatedEvent#TIME_UPDATED", type="mvcclock.model.events.TimeUpdatedEvent")]
+	
+	public class VirtualTimeModel extends EventDispatcher implements TimeModel, Time {
 		
 		/*===========================================================
 		STATIC CONSTS
 		===========================================================*/
+		
+		/**
+		 * timestamp in seconds [!] for 24 hours
+		 */
 		static public const FULL_DAY_TIMESTAMP : Number = 24 * 60 * 60;
 		
 		/*===========================================================
 		CONSTRUCTOR
 		===========================================================*/
-		public function DayTimeModel( beginTime : Time ) : void{
+		public function VirtualTimeModel( beginTime : Time ) : void{
 			trace( this );
 			time = beginTime;
 			_init();
@@ -44,6 +42,10 @@ package mvcclock.model {
 		/*===========================================================
 		INSTANCE ACCESSORS
 		===========================================================*/
+
+		/**
+		 * @inherits
+		 */
 		public function set timestamp( value : Number ) : void{
 			if( value >=  FULL_DAY_TIMESTAMP )
 				value -= FULL_DAY_TIMESTAMP;
@@ -57,21 +59,33 @@ package mvcclock.model {
 			return _timestamp;
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function get hours():uint
 		{
 			return Math.floor( _timestamp / 3600 );
 		}
-		
+
+		/**
+		 * @inherits
+		 */
 		public function get minutes():uint
 		{
 			return Math.floor( _timestamp / 60 % 60);
 		}
 
+		/**
+		 * @inherits
+		 */
 		public function get seconds():uint
 		{
 			return Math.floor( _timestamp % 60 );
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function get time():Time
 		{
 			return this;
@@ -82,6 +96,9 @@ package mvcclock.model {
 			timestamp = ( value.hours * 3600 ) + ( value.minutes * 60 ) + value.seconds;
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function get speed():Number
 		{
 			return _timer.speed;
@@ -92,6 +109,9 @@ package mvcclock.model {
 			_timer.speed = value;
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function get isRunning() : Boolean{
 			return _timer.isRunning;
 		}
@@ -102,34 +122,51 @@ package mvcclock.model {
 		private function _init():void{
 			_timer = new ModelTimerDelegate( this );
 		}
+	
+		/**
+		 * @inherits
+		 */
 		public function addSeconds(value:int):void
 		{
 			timestamp += value;
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function subtractSeconds(value:int):void
 		{
 			timestamp -= value;
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function reset():void
 		{
 			this.timestamp = 0;
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function start():void
 		{
 			_timer.start();
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function stop():void
 		{
 			_timer.stop();
 		}
 		
-		
-		
-		
+		/**
+		 * return the current virtual time as a formatted String
+		 * @returns String the current virtual time as a formatted String
+		 */
 		override public function toString():String{
 			return _timestamp + ' - ' + hours + ':' + minutes + ':' + seconds;
 			//return _timestamp.toString();
