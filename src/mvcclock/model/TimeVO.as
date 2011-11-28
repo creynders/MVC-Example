@@ -2,6 +2,9 @@ package mvcclock.model
 {
 	import mvcclock.model.base.Time;
 	
+	/**
+	 * Value Object to pass a virtual time value around
+	 */
 	public class TimeVO implements Time
 	{
 		/*===========================================================
@@ -18,24 +21,36 @@ package mvcclock.model
 		INSTANCE ACCESSORS
 		===========================================================*/
 		protected var _hours : uint;
+		/**
+		 * @inherits
+		 */
 		public function get hours():uint
 		{
 			return _hours;
 		}
 		
 		protected var _minutes : uint;
+		/**
+		 * @inherits
+		 */
 		public function get minutes():uint
 		{
 			return _minutes;
 		}
 		
 		protected var _seconds : uint;
+		/**
+		 * @inherits
+		 */
 		public function get seconds():uint
 		{
 			return _seconds;
 		}
 		
 		protected var _timestamp : Number;
+		/**
+		 * @inherits
+		 */
 		public function get timestamp():Number
 		{
 			return _timestamp;

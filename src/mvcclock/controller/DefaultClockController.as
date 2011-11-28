@@ -1,12 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-//Code stub generated with:
-//                                Crocus Modeller
-//                      Robust UML editor for AS3 & Flex devs.
-//                             http://CrocusModeller.com
-//
-////////////////////////////////////////////////////////////////////////////////
-
-
 package mvcclock.controller {
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
@@ -23,7 +14,7 @@ package mvcclock.controller {
 	/**
 	 * DefaultClockController
 	 *
-	 * @author YourName
+	 * @author @camillereynders
 	 */
 	public class DefaultClockController extends AbstractController implements ClockController {
 		/*===========================================================

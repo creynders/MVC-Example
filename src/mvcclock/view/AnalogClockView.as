@@ -1,12 +1,3 @@
-////////////////////////////////////////////////////////////////////////////////
-//Code stub generated with:
-//                                Crocus Modeller
-//                      Robust UML editor for AS3 & Flex devs.
-//                             http://CrocusModeller.com
-//
-////////////////////////////////////////////////////////////////////////////////
-
-
 package mvcclock.view {
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
@@ -23,7 +14,7 @@ package mvcclock.view {
 	/**
 	 * AnalogClockView
 	 *
-	 * @author YourName
+	 * @author @camillereynders
 	 */
 	public class AnalogClockView extends MovieClip implements ClockView {
 		/*===========================================================
@@ -61,6 +52,9 @@ package mvcclock.view {
 			this.dispatchEvent( new ResetClockEvent() );
 		}
 		
+		/**
+		 * @inherits
+		 */
 		public function updateTime( time : Time ):void
 		{
 			//trace( this, time );

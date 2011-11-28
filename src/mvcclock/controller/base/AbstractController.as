@@ -4,7 +4,10 @@ package mvcclock.controller.base
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
 	
-	
+	/**
+	 * Abstract controller class
+	 * @author @camillereynders
+	 */
 	public class AbstractController implements Controller
 	{
 		/*===========================================================
@@ -18,6 +21,7 @@ package mvcclock.controller.base
 		/*===========================================================
 		INSTANCE PROPS
 		===========================================================*/
+		
 		protected var _systembus : IEventDispatcher
 		
 		/*===========================================================

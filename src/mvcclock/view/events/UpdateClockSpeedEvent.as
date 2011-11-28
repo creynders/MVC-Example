@@ -2,6 +2,9 @@ package mvcclock.view.events
 {
 	import flash.events.Event;
 	
+	/**
+	 * dispatched by the clock views to set the speed of virtual time update frequency
+	 */
 	public class UpdateClockSpeedEvent extends Event
 	{
 		

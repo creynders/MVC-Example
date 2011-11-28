@@ -4,6 +4,10 @@ package mvcclock.model.events
 	
 	import mvcclock.model.base.Time;
 	
+	/**
+	 * dispatched by VirtualTimeModel when the current virtual time is updated
+	 * @see mvcclock.modelVirtualTimeModel
+	 */
 	public class TimeUpdatedEvent extends Event
 	{
 		/*===========================================================
@@ -28,10 +32,19 @@ package mvcclock.model.events
 		/*===========================================================
 		INSTANCE METHS
 		===========================================================*/
+		
+		/**
+		 * the updated virtual time
+		 */
 		public function get time():Time{
 			return _time;
 		}
 
 
+		override public function clone():Event
+		{
+			return new TimeUpdatedEvent( time );
+		}
+		
 	}
 }

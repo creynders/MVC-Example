@@ -6,11 +6,20 @@ package mvcclock.model
 	import mvcclock.model.base.TimeModel;
 	
 
+	/**
+	 * Delegate class, handles the time update frequency
+	 * @author @camillereynders
+	 */
+	
 	public class ModelTimerDelegate
 	{
 		/*===========================================================
 		STATIC CONSTS
 		===========================================================*/
+		
+		/**
+		 * default update frequency, in milliseconds
+		 */
 		static public const DEFAULT_UPDATE_FREQUENCY : uint = 1000;
 		
 		/*===========================================================
@@ -37,6 +46,7 @@ package mvcclock.model
 		/*===========================================================
 		INSTANCE ACCESSORS
 		===========================================================*/
+		
 		public function get speed() : Number {
 			return _updateFrequency / DEFAULT_UPDATE_FREQUENCY * _direction;
 		}
@@ -62,26 +72,40 @@ package mvcclock.model
 			_timer.addEventListener( TimerEvent.TIMER, _onTimerEvent );
 		}
 		
+		/**
+		 * @inherits mvcclock.model.base.TimeModel#start
+		 */
 		public function start():void{
 			_lastTime = new Date();
 			_next = _updateFrequency;
 			_timer.start();
 		}
 		
+		/**
+		 * @inherits mvcclock.model.base.TimeModel#stop
+		 */
 		public function stop():void{
 			_timer.stop();
 		}
 		
+		/**
+		 * timeout for timer, updates the model
+		 * @private
+		 */
 		protected function _onTimerEvent(event:TimerEvent):void
 		{
 			var currentTime : Date = new Date();
+			//holds how much real time has passed between the last timeout and the current one
 			var diff : Number = currentTime.getTime() - _lastTime.getTime();
 			if( diff >= _next  ){
 				_lastTime = currentTime;
+				//calculate when the next model update should occur
+				//according to current time bleed
 				_next = _updateFrequency - ( diff - _next );
 				_model.addSeconds( _direction );
 			}
 		}
+		
 		
 	}
 }

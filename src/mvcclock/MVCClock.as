@@ -10,6 +10,12 @@ package mvcclock
 	import mvcclock.view.AnalogClockView;
 	import mvcclock.view.DigitalClockView;
 	
+	/**
+	 * Document class for build/MVCClock.fla
+	 * @author @camillereynders
+	 * @version 1.0.0
+	 */
+	
 	public class MVCClock extends Sprite implements ApplicationView
 	{
 		/*===========================================================
@@ -50,6 +56,11 @@ package mvcclock
 			_startup();
 		}
 		
+		/**
+		 * bootstrap, fires up the application
+		 *
+		 * @private
+		 */
 		private function _startup() : void{
 			_controller = new ApplicationController( this );
 			
@@ -57,6 +68,9 @@ package mvcclock
 			showDigital();
 		}
 		
+		/**
+		 * create the analog clock view
+		 */
 		public function showAnalog():void{
 			var analogClock : AnalogClockView = new AnalogClockView();
 			analogClock.x = 200;
@@ -64,6 +78,9 @@ package mvcclock
 			this.addChild( analogClock );
 		}
 		
+		/**
+		 * create the digital clock view
+		 */
 		public function showDigital() : void{
 			var digitalClock : DigitalClockView = new DigitalClockView();
 			digitalClock.x = 400;

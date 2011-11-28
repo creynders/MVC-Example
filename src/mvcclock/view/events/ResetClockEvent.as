@@ -2,6 +2,9 @@ package mvcclock.view.events
 {
 	import flash.events.Event;
 	
+	/**
+	 * dispatched by the clock views requesting a reset of the virtual time
+	 */
 	public class ResetClockEvent extends Event
 	{
 		/*===========================================================

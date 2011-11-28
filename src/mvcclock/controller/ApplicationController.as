@@ -8,10 +8,14 @@ package mvcclock.controller
 	import mvcclock.view.base.ClockView;
 	import mvcclock.model.base.TimeModel;
 	import mvcclock.model.ModelTimerDelegate;
-	import mvcclock.model.DayTimeModel;
+	import mvcclock.model.VirtualTimeModel;
 	import mvcclock.model.TimeVO;
 	import mvcclock.controller.base.AbstractController;
 
+	/**
+	 * controller object for the application view
+	 * responsible for creating the controllers of the subviews
+	 */
 	public class ApplicationController extends AbstractController
 	{
 		/*===========================================================
@@ -31,7 +35,13 @@ package mvcclock.controller
 		===========================================================*/
 		private var _view : ApplicationView;
 		
+		/**
+		 * cache for controller objects
+		 * @private
+		 */
 		private var _controllers : Dictionary;
+		
+		//the virtual time model
 		private var _model : TimeModel;
 		
 		/*===========================================================
@@ -39,7 +49,7 @@ package mvcclock.controller
 		===========================================================*/
 		override public function startup() : void{
 			_controllers = new Dictionary( false );
-			_model = new DayTimeModel( new TimeVO( 23, 59, 55 ) );
+			_model = new VirtualTimeModel( new TimeVO( 23, 59, 55 ) );
 			_view.addEventListener( Event.ADDED_TO_STAGE, _onAddedToStageEvent, true );
 			_view.addEventListener( Event.REMOVED_FROM_STAGE, _onRemovedFromStage );
 		}
@@ -49,6 +59,9 @@ package mvcclock.controller
 			//TODO
 		}
 		
+		/**
+		 * @private
+		 */
 		protected function _onAddedToStageEvent(event:Event):void
 		{
 			if( event.target is ClockView ){
