@@ -11,6 +11,9 @@ package mvcclock.model {
 	 * @author @camillereynders
 	 */
 	
+	/**
+	 * @eventType mvcclock.model.events.TimeUpdatedEvent.TIME_UPDATED
+	 */
 	[Event(name="mvcclock.restricted.model.events::TimeModelUpdatedEvent#TIME_UPDATED", type="mvcclock.model.events.TimeUpdatedEvent")]
 	
 	public class VirtualTimeModel extends EventDispatcher implements TimeModel, Time {
@@ -44,7 +47,7 @@ package mvcclock.model {
 		===========================================================*/
 
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function set timestamp( value : Number ) : void{
 			if( value >=  FULL_DAY_TIMESTAMP )
@@ -60,7 +63,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get hours():uint
 		{
@@ -68,7 +71,7 @@ package mvcclock.model {
 		}
 
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get minutes():uint
 		{
@@ -76,7 +79,7 @@ package mvcclock.model {
 		}
 
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get seconds():uint
 		{
@@ -84,7 +87,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get time():Time
 		{
@@ -97,7 +100,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get speed():Number
 		{
@@ -110,7 +113,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get isRunning() : Boolean{
 			return _timer.isRunning;
@@ -124,7 +127,7 @@ package mvcclock.model {
 		}
 	
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function addSeconds(value:int):void
 		{
@@ -132,7 +135,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function subtractSeconds(value:int):void
 		{
@@ -140,7 +143,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function reset():void
 		{
@@ -148,7 +151,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function start():void
 		{
@@ -156,7 +159,7 @@ package mvcclock.model {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function stop():void
 		{

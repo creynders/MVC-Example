@@ -53,7 +53,7 @@ package mvcclock.view {
 		}
 		
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function updateTime( time : Time ):void
 		{

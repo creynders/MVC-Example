@@ -11,6 +11,10 @@ package mvcclock.view.events
 		/*===========================================================
 		STATIC CONSTS
 		===========================================================*/
+		
+		/**
+		 * @eventType mvcclock.restricted.view.events::UpdateClockSpeedEvent#UPDATE_CLOCK_SPEED
+		 */
 		static public const UPDATE_CLOCK_SPEED : String = 'mvcclock.restricted.view.events::UpdateClockSpeedEvent#UPDATE_CLOCK_SPEED';
 		
 		/*===========================================================

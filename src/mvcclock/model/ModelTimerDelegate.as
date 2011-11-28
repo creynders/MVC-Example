@@ -47,6 +47,9 @@ package mvcclock.model
 		INSTANCE ACCESSORS
 		===========================================================*/
 		
+		/**
+		 * @copy mvcclock.model.base.TimeModel#speed
+		 */
 		public function get speed() : Number {
 			return _updateFrequency / DEFAULT_UPDATE_FREQUENCY * _direction;
 		}
@@ -60,6 +63,9 @@ package mvcclock.model
 			}
 		}
 		
+		/**
+		 * @copy mvcclock.model.base.TimeModel#isRunning
+		 */
 		public function get isRunning() : Boolean{
 			return _timer.running;
 		}
@@ -73,7 +79,7 @@ package mvcclock.model
 		}
 		
 		/**
-		 * @inherits mvcclock.model.base.TimeModel#start
+		 * @copy mvcclock.model.base.TimeModel#start()
 		 */
 		public function start():void{
 			_lastTime = new Date();
@@ -82,7 +88,7 @@ package mvcclock.model
 		}
 		
 		/**
-		 * @inherits mvcclock.model.base.TimeModel#stop
+		 * @copy mvcclock.model.base.TimeModel#stop()
 		 */
 		public function stop():void{
 			_timer.stop();

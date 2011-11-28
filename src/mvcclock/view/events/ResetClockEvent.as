@@ -10,6 +10,10 @@ package mvcclock.view.events
 		/*===========================================================
 		STATIC CONSTS
 		===========================================================*/
+		
+		/**
+		 * @eventType mvcclock.restricted.view.events::ResetClockEvent#RESET_CLOCK
+		 */
 		static public const RESET_CLOCK : String = 'mvcclock.restricted.view.events::ResetClockEvent#RESET_CLOCK';
 		
 		/*===========================================================

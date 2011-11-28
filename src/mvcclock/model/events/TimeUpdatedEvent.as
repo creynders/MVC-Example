@@ -13,6 +13,10 @@ package mvcclock.model.events
 		/*===========================================================
 		STATIC PROPS
 		===========================================================*/
+		
+		/**
+		 * @eventType mvcclock.restricted.model.events::TimeModelUpdatedEvent#TIME_UPDATED
+		 */
 		static public const TIME_UPDATED : String = 'mvcclock.restricted.model.events::TimeModelUpdatedEvent#TIME_UPDATED'
 		
 		/*===========================================================

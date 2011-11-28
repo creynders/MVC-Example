@@ -22,7 +22,7 @@ package mvcclock.model
 		===========================================================*/
 		protected var _hours : uint;
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get hours():uint
 		{
@@ -31,7 +31,7 @@ package mvcclock.model
 		
 		protected var _minutes : uint;
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get minutes():uint
 		{
@@ -40,7 +40,7 @@ package mvcclock.model
 		
 		protected var _seconds : uint;
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get seconds():uint
 		{
@@ -49,7 +49,7 @@ package mvcclock.model
 		
 		protected var _timestamp : Number;
 		/**
-		 * @inherits
+		 * @inheritDoc
 		 */
 		public function get timestamp():Number
 		{
